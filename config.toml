@@ -1,6 +1,6 @@
 # General Settings
 title = "Woody - Coming Soon & Under Construction Hugo Theme"
-baseURL = "" #YOUR SITE URL
+baseURL = "condokitchen.net" #YOUR SITE URL
 languageCode = "en-us"
 theme = "woody"
 resourceDir = "resources"

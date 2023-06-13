@@ -21,21 +21,21 @@ header:
 #       icon: "fa-brands fa-youtube"
 #       url: "https://www.youtube.com/"
 
-#     - title: "Twitter"
-#       icon: "fa-brands fa-twitter"
-#       url: "https://www.twitter.com/"
+    - title: "Twitter"
+      icon: "fa-brands fa-twitter"
+      url: "https://www.twitter.com/"
 
-#     - title: "Facebook"
-#       icon: "fa-brands fa-facebook"
-#       url: "https://facebook.com/"
+    - title: "Facebook"
+      icon: "fa-brands fa-facebook"
+      url: "https://facebook.com/"
 
 #     # - title: "Dribbble"
 #     #   icon: "fa-brands fa-dribbble"
 #     #   url: "https://www.dribbble.com/"
 
-#     - title: "Instagram"
-#       icon: "fa-brands fa-instagram"
-#       url: "https://www.instagram.com/"
+    - title: "Instagram"
+      icon: "fa-brands fa-instagram"
+      url: "https://www.instagram.com/"
 
 # ### About [ aboutSection ]
 # about:
