@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Woody - Coming Soon &amp; Under Construction Hugo Theme</title>
-    <link>www.condokitchen.net/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Woody - Coming Soon &amp; Under Construction Hugo Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Oct 2022 20:15:10 +0300</lastBuildDate><atom:link href="www.condokitchen.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Oct 2022 20:15:10 +0300</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creative</title>
-      <link>www.condokitchen.net/categories/creative/</link>
+      <link>/categories/creative/</link>
       <pubDate>Mon, 03 Oct 2022 20:15:10 +0300</pubDate>
       
-      <guid>www.condokitchen.net/categories/creative/</guid>
+      <guid>/categories/creative/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Development</title>
-      <link>www.condokitchen.net/categories/development/</link>
+      <link>/categories/development/</link>
       <pubDate>Mon, 03 Oct 2022 20:15:10 +0300</pubDate>
       
-      <guid>www.condokitchen.net/categories/development/</guid>
+      <guid>/categories/development/</guid>
       <description></description>
     </item>
     
