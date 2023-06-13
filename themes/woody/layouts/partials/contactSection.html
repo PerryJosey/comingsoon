@@ -1,0 +1,51 @@
+{{ with .Site.Data.home.contact }}
+{{ if .enable }}
+
+{{ "<!-- Section Contact -->" | safeHTML }}
+<section class="section-contact" id="contact">
+
+  <div class="row">
+
+    <div class="col-md-6 left-box" style="background-image: url({{ .image | absURL }});">
+
+      <div class="title-section wow fadeUp" data-wow-delay=".3s">
+        <i class="fas fa-envelope"></i>
+        <h2>{{ .title | safeHTML }}</h2>
+        {{ .text | safeHTML }}
+      </div>
+        <div class="row">
+          {{ range .contactInfo }}
+          <div class="col-md-4">
+            <div class="contact-info wow fadeUp" data-wow-delay=".3s">
+              <div class="icon">
+                <i aria-hidden="true" class="{{ .icon }}"></i>
+              </div>
+              <div class="info-box">
+                <h3>{{ .title }}</h3>
+                <p>{{ .text | safeHTML }}</p>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+    
+    </div>
+
+    
+    <div class="col-md-6 right-box">
+
+      <form id="contact-form" action="{{ .formspreeURL }}" method="post">
+        <input class="wow fadeUp" data-wow-delay=".3s" type="text" name="name" id="name" placeholder="{{ i18n "yourName" }}" />
+        <input class="wow fadeUp" data-wow-delay=".3s" type="email" name="email" id="email" placeholder="{{ i18n "yourEmail" }}" />
+        <textarea class="wow fadeUp" data-wow-delay=".3s" name="msg" id="msg" placeholder="{{ i18n "yourMessage" }}"></textarea>
+        <input class="wow fadeUp" data-wow-delay=".3s" type="submit" name="submit" id="submit" value="{{ i18n "sendMessage" }}" />
+    </form>
+
+    </div>
+
+</div>
+
+</section>
+
+{{ end }}
+{{ end }}

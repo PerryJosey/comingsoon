@@ -1,0 +1,44 @@
+{{ with .Site.Data.home.about }}
+{{ if .enable }}
+
+{{ "<!-- About Section -->" | safeHTML }}
+<section class="section-about" id="about">
+
+  <div class="row">
+
+      <div class="col-md-6 left-box">
+
+        <div class="intro-text wow fadeUp" data-wow-delay=".3s">
+          <h2>{{ .title | safeHTML }}</h2>
+          {{ .text | safeHTML }}
+        </div>
+
+      </div>
+
+      
+      <div class="col-md-6 right-box" style="background-image: url({{ .image | absURL }});">
+        <div class="row">
+    
+          {{ range .experience }}
+          <div class="col-md-3">
+            <div class="experience-box wow fadeUp" data-wow-delay=".3s">
+              <div class="icon">
+                <i aria-hidden="true" class="{{ .icon }}"></i>
+              </div>
+              <h4>{{ .title }}</h4>
+                <div class="timer">
+                  <span class="number">{{ .count }}</span>
+                </div>
+            </div>
+          </div>
+          {{ end }}
+          
+        </div>
+      </div>
+
+  </div>
+
+</section>
+
+{{ end }}
+{{ end }}

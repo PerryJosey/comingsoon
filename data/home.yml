@@ -1,0 +1,213 @@
+### Sections content configuration file
+### Here you can find all content in all pre-build sections
+
+### Header [ headerSection ]
+header:
+  enable: true
+  logo: "/images/logo.png"
+  widthLogo: 230
+  heightLogo: 157
+  title: "OUR WEBSITE IS UNDER CONSTRUCTION."
+  description: "We are working very hard to give you the best experience with this one.<br />
+  You will love Woody as much as we do. It will morph perfectly on your needs!"
+  # countdown: "Oct 27, 2024 20:39:00"
+  # urlMouse: "#about"
+  socialIcons:
+#     - title: "YouTube"
+#       icon: "fa-brands fa-youtube"
+#       url: "https://www.youtube.com/"
+
+#     - title: "Twitter"
+#       icon: "fa-brands fa-twitter"
+#       url: "https://www.twitter.com/"
+
+#     - title: "Facebook"
+#       icon: "fa-brands fa-facebook"
+#       url: "https://facebook.com/"
+
+#     # - title: "Dribbble"
+#     #   icon: "fa-brands fa-dribbble"
+#     #   url: "https://www.dribbble.com/"
+
+#     - title: "Instagram"
+#       icon: "fa-brands fa-instagram"
+#       url: "https://www.instagram.com/"
+
+# ### About [ aboutSection ]
+# about:
+#   enable: true
+#   image: "/images/about-section.jpg"
+#   title: "Whose evening. Spirit subdue two don't. Living, i divided was be every had..."
+#   text: "<p>Created, likeness bring which in stars herb a is give you'll it life you'll. Whose evening. Spirit subdue two don't. Living, i divided was be every had. Him god. Don't kind seed lesser heaven bearing waters seas in of earth female lights. Morning fruit may. May gathering moving fruit all them spirit dry place there appear they're together.</p>
+#   <p>Together had said given day spirit. Land years upon, created winged all. Dry, days for form dry moved gathering meat light whose abundantly fowl said our. Have green. Cattle. Called i that waters dry one said firmament his after their night. Likeness.</p>"
+#   titleIcon: "Experience"
+#   icon: "fas fa-rocket"
+#   experience:
+#     - title: "Projects"
+#       icon: "fas fa-briefcase"
+#       count: "769"
+
+#     - title: "Clients"
+#       icon: "fas fa-face-smile"
+#       count: "371"
+
+#     - title: "Coffees"
+#       icon: "fas fa-coffee"
+#       count: "213"
+
+#     - title: "Awards"
+#       icon: "fas fa-trophy"
+#       count: "129"
+
+### Services [ servicesSection ]
+# services:
+#   enable: true
+#   image: "/images/services-section.jpg"
+#   title: "Services"
+#   text: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+#   items:
+#     - title: "Inovative Ideas"
+#       icon: "fas fa-laptop"
+#       text: "We don't want to conquer the cosmos, we simply want to extend the boundaries of Earth to the frontiers of the cosmos."
+
+#     - title: "Clean code"
+#       icon: "fas fa-code"
+#       text: "We don't want to conquer the cosmos, we simply want to extend the boundaries of Earth to the frontiers of the cosmos."
+
+#     - title: "24/7 Support"
+#       icon: "fas fa-bullhorn"
+#       text: "We don't want to conquer the cosmos, we simply want to extend the boundaries of Earth to the frontiers of the cosmos."
+
+#     - title: "HTML5"
+#       icon: "fa-brands fa-html5"
+#       text: "We don't want to conquer the cosmos, we simply want to extend the boundaries of Earth to the frontiers of the cosmos."
+
+
+### Team [ teamSection ]
+# team:
+#   enable: true
+#   image: "/images/team-section.jpg"
+#   title: "Meet our team"
+#   text: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+#   member:
+#     - title: "Paul Torres"
+#       signature: "CEO"
+#       image: "/images/team1.png"
+#       text: "We don't want to conquer the cosmos, we simply want to extend the boundaries of Earth to the frontiers of the cosmos."
+#       socialIcons:
+#       - title: "Twitter"
+#         icon: "fa-brands fa-twitter"
+#         url: "https://www.twitter.com/"
+
+#       - title: "Facebook"
+#         icon: "fa-brands fa-facebook"
+#         url: "https://facebook.com/"
+
+#       - title: "Dribbble"
+#         icon: "fa-brands fa-dribbble"
+#         url: "https://www.dribbble.com/"
+
+#       - title: "Instagram"
+#         icon: "fa-brands fa-instagram"
+#         url: "https://www.instagram.com/"
+
+#     - title: "Joseph Anderson"
+#       image: "/images/team2.png"
+#       signature: "Web-Designer"
+#       text: "We don't want to conquer the cosmos, we simply want to extend the boundaries of Earth to the frontiers of the cosmos."
+#       socialIcons:
+#       - title: "Twitter"
+#         icon: "fa-brands fa-twitter"
+#         url: "https://www.twitter.com/"
+
+#       - title: "Facebook"
+#         icon: "fa-brands fa-facebook"
+#         url: "https://facebook.com/"
+
+#       - title: "Dribbble"
+#         icon: "fa-brands fa-dribbble"
+#         url: "https://www.dribbble.com/"
+
+#       - title: "Instagram"
+#         icon: "fa-brands fa-instagram"
+#         url: "https://www.instagram.com/"
+
+#     - title: "Scolara Visari"
+#       image: "/images/team3.png"
+#       signature: "Web-Developer"
+#       text: "We don't want to conquer the cosmos, we simply want to extend the boundaries of Earth to the frontiers of the cosmos."
+#       socialIcons:
+#       - title: "Twitter"
+#         icon: "fa-brands fa-twitter"
+#         url: "https://www.twitter.com/"
+
+#       - title: "Facebook"
+#         icon: "fa-brands fa-facebook"
+#         url: "https://facebook.com/"
+
+#       - title: "Dribbble"
+#         icon: "fa-brands fa-dribbble"
+#         url: "https://www.dribbble.com/"
+
+#       - title: "Instagram"
+#         icon: "fa-brands fa-instagram"
+#         url: "https://www.instagram.com/"
+
+#     - title: "JOHN MOUNTY"
+#       image: "/images/team4.png"
+#       signature: "Web-Developer"
+#       text: "We don't want to conquer the cosmos, we simply want to extend the boundaries of Earth to the frontiers of the cosmos."
+#       socialIcons:
+#       - title: "Twitter"
+#         icon: "fa-brands fa-twitter"
+#         url: "https://www.twitter.com/"
+
+#       - title: "Facebook"
+#         icon: "fa-brands fa-facebook"
+#         url: "https://facebook.com/"
+
+#       - title: "Dribbble"
+#         icon: "fa-brands fa-dribbble"
+#         url: "https://www.dribbble.com/"
+
+#       - title: "Instagram"
+#         icon: "fa-brands fa-instagram"
+#         url: "https://www.instagram.com/"
+
+### Contact [ contactSection ]
+contact:
+  enable: true
+  image: "/images/contact-section.jpg"
+  title: "Get in touch"
+  text: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  formspreeURL: "https://formspree.io/f/mdojprlw"
+  contactInfo:
+      # - title: "Address"
+      #   icon: "fa-solid fa-location-dot"
+      #   text: "Kinglake West VIC 3757, Australia"
+
+      # - title: "Phone number"
+      #   icon: "fas fa-phone"
+      #   text: "+61383766284"
+
+      # - title: "Email"
+      #   icon: "fas fa-paper-plane"
+      #   text: "youremail@youremailaddress.com"
+  
+
+### Subscribe [ subscribeSection ]
+# subscribe:
+#   enable: true
+#   image: "/images/subscribe-section.jpg"
+#   title: "Subscribe"
+#   icon: "fas fa-paper-plane"
+#   # Example MailChimp url: http://xxx.xxx.list-manage.com/subscribe/post?u=xxx&id=xxx
+#   mailChimpURL: "https://stevedogs.us9.list-manage.com/subscribe/post?u=df0aa2ea10f32337b29b342d4&id=41ddc569b4"
+#   # Google Maps widget: If "googleMapsApiKey" is not set, no key will be passed to Google (which likely results in a broken map widget).
+#   googleMapsApiKey: "AIzaSyAV1KS10sb3O462XosfZTKohHJwi6C0joo"
+#   latitude: "-37.8602828"
+#   longitude: "145.079616"
+#   iconLocation: "/images/icon-location.png"
+#   titleIconLocation: "Melbourne, Australia"
+#   colorMap: "#24b7a4"
+#   mapZoom: 9

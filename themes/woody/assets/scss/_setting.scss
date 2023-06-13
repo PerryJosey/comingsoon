@@ -1,0 +1,144 @@
+/*
+*	Woody - Coming Soon & Under Construction Hugo Theme
+*	Version: 1.0.0
+*	Author: Mountain-Themes
+*	Author URL: https://themeforest.net/user/mountain-themes
+*	Woody © 2022. Design & Coded by Mountain-Themes.
+*/
+
+/* SETTINGS VARIABLES
+	- Pageloader
+	- Background Colors
+	- Colors
+	- Fonts & Fonts Size 
+	- Menu
+	- Menu Coming Soon Page
+	- Blog
+	- Section Header
+	- Section About
+	- Section Services
+	- Section Team
+	- Section Contact
+	- Section Subscribe
+	- Footer
+*/
+
+/* Pageloader */
+$background_pageloader: #242830;
+$border_icon_pageloader: 4px solid rgba(19, 19, 19, 0.1);
+$border_active_icon_color_pageloader: #2CC9B4;
+$background_icon_color_pageloader: #242830;
+
+/* Background Colors */
+$default_bg: #fff;
+
+/* Colors */
+$default_color: #000;
+
+/* Fonts & Fonts Size */
+$default_font: "Open Sans", sans-serif;
+$heading_font: "Aldrich", sans-serif;
+$mobile_font: "Rajdhani", sans-serif;
+$countdown_font: "Raleway", sans-serif;
+
+$default_size: 13px;
+
+/* Menu */
+$menu_font: "Rajdhani", sans-serif;
+$menu_font_size: 14px;
+$menu_letter_spacing: 1px;
+$menu_text_transform: uppercase;
+
+$menu_color: #000;
+$menu_color_hover: #8f8f8f;
+
+$submenu_color: #fff;
+$submenu_color_hover: #a3a3a3; 
+$submenu_bg_color: #050505;
+
+/* Menu Coming Soon Page */
+$menu_color_coming_page: #fff;
+$menu_hover_color_coming_page: #bfbebe;
+
+/* Blog */
+$blog_color_style: #2CC9B4;
+
+/* Section Header */
+$background_color_header: rgba(0, 0, 0, 0.4);
+$color_text_header: #fff;
+
+$color_icons_header: #fff;
+$color_hover_icons_header: #000;
+$color_border_icons_header: 2px solid #fff;
+$color_border_hover_icons_header: 2px solid #FFFFFF;
+$color_bg_hover_icons_header: #FFFFFF;
+
+$title_font_size_header: 1.9em;
+$text_font_size_header: 14px;
+
+$font_size_countdown: 2.7em;
+
+/* Section About */
+$color_about_left_box_section: #000;
+
+$font_experience_right_box: "Raleway", sans-serif;
+$color_icon_experience_right_box: #fff;
+$text_experience_right_box: #fff;
+
+/* Section Services */
+$color_services_left_box_section: rgb(255, 255, 255);
+
+$color_text_services_right_box_section: rgb(0, 0, 0);
+$color_icon_services_right_box_section: #2CC9B4;
+$border_services_right_box_section: 1px solid #EEEEEF;
+
+/* Section Team */
+$color_team_left_box_section: rgb(0, 0, 0);
+$color_icon_team_left_box_section: #000000;
+
+$color_team_right_box_section: rgb(255, 255, 255);
+$border_team_right_box_section: 1px solid #EEEEEF;
+
+$twitter_color_hover_icon_team: #46C0fb;
+$facebook_color_hover_icon_team: #4863ae;
+$instagram_color_hover_icon_team: #dd4b39;
+$dribbble_color_hover_icon_team: #cc181e;
+
+/* Section Contact */
+$color_contact_left_box_section: rgb(255, 255, 255);
+
+$input_border_contact: 1px solid #EDEDED;
+$input_color_contact: rgb(0, 0, 0);
+$input_text_color_error_icon_contact: #2CC9B4;
+
+$button_bg_contact: #24B7A4;
+$button_border_contact: 2px solid #24B7A4;
+$button_color_contact: #fff;
+$button_font_size_contact: 13px;
+$button_font_weight_contact: 600;
+
+$button_bg_hover_contact: rgba(0, 0, 0, 0);
+$button_color_hover_contact: #24B7A4;
+
+/* Section Subscribe */
+$color_subscribe: rgb(255, 255, 255);
+
+$input_text_bg_subscribe: rgba(255, 255, 255, 0);
+$input_text_border_subscribe: solid 2px rgba(255, 255, 255, 1);
+$input_text_color_subscribe: #fff;
+$input_text_color_error_text_subscribe: #fff;
+$input_text_color_error_icon_subscribe: #fff;
+
+$button_bg_subscribe: rgba(255, 255, 255, 0);
+$button_border_subscribe: 2px solid rgb(255, 255, 255);
+$color_button_subscribe: #fff;
+
+$button_bg_hover_subscribe: #fff;
+$button_border_hover_subscribe: solid 2px rgba(255, 255, 255, 1);
+$button_color_hover_subscribe: rgb(0, 0, 0);
+
+$zoom_icon_bg_map: #24b7a3bd;;
+$zoom_hover_icon_bg_map: #24B7A4;
+
+/* Footer */
+$footer_bg: #242830;

@@ -1,0 +1,56 @@
+{{ with .Site.Data.home.subscribe }}
+{{ if .enable }}
+
+{{ "<!-- Section Subscribe -->" | safeHTML }}
+<section class="section-subscribe" id="subscribe">
+
+<div class="row">
+
+  <div class="col-md-6 left-box">
+
+ 
+    <div id="google-container"></div>
+    <div id="zoom-in"></div>
+    <div id="zoom-out"></div>
+
+    <script>
+        
+        var colorMap = {{ .colorMap }};
+        var iconLocation = "{{ .iconLocation | absURL }}"
+        var titleIconLocation = "{{ .titleIconLocation }}"
+        var latitudeG = {{ .latitude }};
+        var longitudeG = {{ .longitude }};
+        var mapZoomG = {{ .mapZoom }};
+
+    </script>
+    
+
+  </div>
+
+  
+  <div class="col-md-6 right-box" style="background-image: url({{ .image | absURL }});">
+
+    <div class="title-section wow fadeUp" data-wow-delay=".3s">
+      <i class="{{ .icon }}"></i>
+      <h2>{{ .title }}</h2>
+    </div>
+    <form id="ajaxChimp" class="wow fadeUp" data-wow-delay=".3s">
+      <input id="mc-email" type="text" placeholder="{{ i18n "subscribe" }}">
+      <button type="submit"><i class="{{ .icon }}"></i></button>
+      <label for="mc-email"></label>
+    </form>
+
+    <script>
+                    
+      var mailChimpURL = "{{ .mailChimpURL }}"
+
+    </script>
+
+  </div>
+
+</div>
+
+</section>
+
+{{ end }}
+{{ end }}

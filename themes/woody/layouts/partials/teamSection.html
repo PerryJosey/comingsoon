@@ -1,0 +1,52 @@
+{{ with .Site.Data.home.team }}
+{{ if .enable }}
+
+{{ "<!-- Section Team -->" | safeHTML }}
+<section class="section-team" id="team">
+
+  <div class="row">
+
+    <div class="col-md-6 left-box">
+   
+      <div class="row">
+
+        {{ range .member }}
+        <div class="col-md-6">
+          <div class="team-box wow fadeUp" data-wow-delay=".3s">
+              <img src="{{ .image | absURL }}" alt="{{ .title }}">
+            <h2>{{ .title }}</h2>
+            <span>{{ .signature }}</span>
+            <p>{{ .text | safeHTML }}</p>
+            <div class="social-icons">
+              <ul>
+              {{ range .socialIcons }}   
+                <li><a href="{{ .url }}" target="_blank" title="{{ .title }}"><i aria-hidden="true" class="{{ .icon }}"></i></a></li>
+              {{ end }}
+              </ul>
+              </div>
+          </div>
+        </div>
+        {{ end }}
+
+
+      </div>
+      
+    </div>
+
+    
+    <div class="col-md-6 right-box" style="background-image: url({{ .image | absURL }});">
+
+      <div class="title-section wow fadeUp" data-wow-delay=".3s">
+        <i class="fas fa-users"></i>
+        <h2>{{ .title | safeHTML }}</h2>
+        {{ .text | safeHTML }}
+      </div>
+
+    </div>
+
+</div>
+
+</section>
+
+{{ end }}
+{{ end }}
