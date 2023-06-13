@@ -7,9 +7,13 @@ header:
   logo: "/images/logo.png"
   widthLogo: 230
   heightLogo: 157
-  title: "OUR WEBSITE IS UNDER CONSTRUCTION."
-  description: "We are working very hard to give you the best experience with this one.<br />
-  You will love Woody as much as we do. It will morph perfectly on your needs!"
+  title: "Coming Soon"
+  description: "Introducing Condo Kitchen. Order or sell artisan home cooking within your building.<br />
+  
+  Aspiring chefs feeding hungry neighbors, one building at a time.<br />
+  
+  Sustainable, simple and minimal waste.
+"
   # countdown: "Oct 27, 2024 20:39:00"
   # urlMouse: "#about"
   socialIcons:
@@ -179,7 +183,7 @@ contact:
   enable: true
   image: "/images/contact-section.jpg"
   title: "Get in touch"
-  text: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  text: "<p>Be the first to know what's up with Condo Kitchen. We would love to hear from you.</p>"
   formspreeURL: "https://formspree.io/f/mdojprlw"
   contactInfo:
       # - title: "Address"
