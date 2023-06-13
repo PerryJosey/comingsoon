@@ -385,18 +385,18 @@ h6 {
 		font-size: $menu_font_size;
 	}
 
-	.menu-container,
-	.menu-container ul,
-	.menu-container li,
-	.menu-container a {
-		border: none;
-		margin: 0;
-		padding: 0;
-		line-height: 1;
-		-webkit-box-sizing: content-box;
-		-moz-box-sizing: content-box;
-		box-sizing: content-box;
-	}
+	// .menu-container,
+	// .menu-container ul,
+	// .menu-container li,
+	// .menu-container a {
+	// 	border: none;
+	// 	margin: 0;
+	// 	padding: 0;
+	// 	line-height: 1;
+	// 	-webkit-box-sizing: content-box;
+	// 	-moz-box-sizing: content-box;
+	// 	box-sizing: content-box;
+	// }
 
 	.menu-container>ul>li>ul>li a:hover {
 		color: $submenu_color_hover;
