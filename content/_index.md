@@ -1,5 +1,5 @@
 ---
-title: Woody - Coming Soon & Under Construction Hugo Theme
+title: Condo Kitchen - Coming Soon
 builder: true
 type: coming-soon
 
