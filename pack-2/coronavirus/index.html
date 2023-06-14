@@ -1,0 +1,350 @@
+<!doctype html><html lang=en><head><title>Woody - Coronavirus – Effect</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=HandheldFriendly content="true"><meta name=author content="Mountain-Themes"><meta name=keywords content="clean,minimal,blog,responsive,google analytics,bootstrap,under construction,coming soon,modern,countdown,hugo theme,creative"><meta name=description content="Woody - Coming Soon &amp;amp; Under Construction Hugo Theme"><meta name=generator content="Hugo 0.113.0"><link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel=stylesheet type=text/css><link href='https://fonts.googleapis.com/css?family=Aldrich:400' rel=stylesheet type=text/css><link href='https://fonts.googleapis.com/css?family=Raleway:500' rel=stylesheet type=text/css><link href='https://fonts.googleapis.com/css?family=Rajdhani:500' rel=stylesheet type=text/css><link rel=stylesheet href=plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=plugins/font-awesome/css/font-awesome.min.css><link rel=stylesheet href=plugins/slicknav/slicknav.min.css><link rel=stylesheet href=plugins/animate/animate.min.css><link rel=stylesheet href=/scss/app.min.css><script src=plugins/jQuery/jquery.min.js></script>
+<link rel="shortcut icon" href=images/favicon.ico type=image/x-icon><link rel=icon href=images/favicon.ico type=image/x-icon><script async src="https://www.googletagmanager.com/gtag/js?id=%20"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config"," ")</script></head><body class="page coming-soon"><div class=page-loader><div class="loader-icon fa fa-spin colored-border"></div></div><header><div class=container><div class=row><div class=col-md-12><div class=header-box><div class=logo><h3><a href>Woody</a></h3></div></div><div class=mobile-menu></div></div></div></div></header><div class=wrapper><div class=header-section><div class=container><div class=social-icons><ul class=animated><li><a href=https://www.twitter.com/ target=_blank title=Twitter><i aria-hidden=true class="fa-brands fa-twitter"></i></a></li><li><a href=https://facebook.com/ target=_blank title=Facebook><i aria-hidden=true class="fa-brands fa-facebook"></i></a></li><li><a href=https://www.instagram.com/ target=_blank title=Instagram><i aria-hidden=true class="fa-brands fa-instagram"></i></a></li></ul></div><div class=logo><img src=/images/logo.png width=230 height=157 alt=logo></div><h1>Coming Soon</h1><p>Introducing Condo Kitchen. Order or sell artisan home cooking within your building..<br>Aspiring chefs feeding hungry neighbors, one building at a time.<br>Sustainable, simple and minimal waste.</p><div class=countdown data-timer></div></div><div id=effect-box><div class=virus></div></div><script id=vertexShader type=x-shader/x-vertex>
+            uniform float p;
+            varying float intensity;
+            void main()
+            {
+                vec3 vNormal = normalize( normalMatrix * normal );
+                intensity = pow(1.0 - abs(dot(vNormal, vec3(0, 0, 1))), p);
+                gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+            }
+        </script><script id=fragmentShader type=x-shader/x-vertex>
+                uniform vec3 glowColor;
+                varying float intensity;
+                void main()
+                {
+                    vec3 glow = glowColor * intensity;
+                    gl_FragColor = vec4( glow, 1.0 );
+                }
+        </script><script type=module>
+
+            import * as THREE from "\/plugins\/effects\/coronavirus\/three.module.js";
+            import Stats from "\/plugins\/effects\/coronavirus\/stats.module.js";
+            import { GUI } from "\/plugins\/effects\/coronavirus\/dat.gui.module.js";
+            import { OrbitControls } from "\/plugins\/effects\/coronavirus\/OrbitControls.js";
+            import { STLLoader } from "\/plugins\/effects\/coronavirus\/STLLoader.js";
+            import { BokehShader, BokehDepthShader } from "\/plugins\/effects\/coronavirus\/BokehShader2.js";
+
+            var spread = 60;
+            var particleMax = 400;
+            var bitMax =  400 ;
+            var particles = [];
+            var bits = [];
+
+            var container, camera, scene, renderer, materialDepth, controls;
+
+            var windowHalfX = window.innerWidth / 2;
+            var windowHalfY = window.innerHeight / 2;
+
+            var postprocessing = { enabled: true };
+            var shaderSettings = {
+              rings: 4,
+              samples: 7
+            };
+
+            let effectController = {
+              enabled: true,
+              jsDepthCalculation: false,
+              shaderFocus: false,
+
+              fstop: 20.428,
+              maxblur:  3 ,
+
+              showFocus: false,
+              focalDepth: 15,
+              manualdof: false,
+              vignetting: true,
+              depthblur: true,
+
+              threshold: 0.225,
+              gain: 2.0,
+              bias: 0.0,
+              fringe: 0.0,
+
+              focalLength: 30,
+              noise: true,
+              pentagon: true,
+
+              dithering: 0.0001
+            };
+
+            init();
+            animate();
+
+            function getRnd(min, max) {
+              return Math.random() * (max - min + 1)  + min;
+            }
+
+            function init() {
+              container = document.querySelector(".virus")
+            
+
+              scene = new THREE.Scene();
+              scene.background = new THREE.Color("#102905"); 
+
+              renderer = new THREE.WebGLRenderer();
+              renderer.setPixelRatio( window.devicePixelRatio );
+              renderer.setSize( window.innerWidth, window.innerHeight );
+              renderer.autoClear = false;
+              container.appendChild( renderer.domElement );
+
+              camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, spread - 5 );
+              
+              camera.position.x = 0;
+              camera.position.z = 0;
+              camera.position.y = 0;
+              camera.lookAt(scene.position);
+              scene.add( camera );
+
+              var depthShader = BokehDepthShader;
+              materialDepth = new THREE.ShaderMaterial( {
+                uniforms: depthShader.uniforms,
+                vertexShader: depthShader.vertexShader,
+                fragmentShader: depthShader.fragmentShader
+              } );
+              materialDepth.uniforms[ "mNear" ].value = camera.near;
+              materialDepth.uniforms[ "mFar" ].value = camera.far;
+              var XRayVirusMaterial = new THREE.ShaderMaterial({
+                uniforms: {
+                  p: { type: "f", value: 2 },
+                  glowColor: { type: "c", value: new THREE.Color( 5569599 ) },
+                },
+                vertexShader: document.getElementById("vertexShader").text,
+                fragmentShader: document.getElementById("fragmentShader").text,
+                side: THREE.DoubleSide,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                depthWrite: false 
+              });
+
+              var XRayBitMaterial = new THREE.ShaderMaterial({
+                uniforms: {
+                  p: { type: "f", value: 2 },
+                  glowColor: { type: "c", value: new THREE.Color( 5569599 ) },
+                },
+                vertexShader: document.getElementById("vertexShader").text,
+                fragmentShader: document.getElementById("fragmentShader").text,
+                side: THREE.DoubleSide,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                depthWrite: false 
+              });
+
+              initPostprocessing();
+              for ( var e in effectController ) {
+                if ( e in postprocessing.bokeh_uniforms ) {
+                  postprocessing.bokeh_uniforms[ e ].value = effectController[ e ];
+                }
+              }
+              postprocessing.enabled = effectController.enabled;
+              postprocessing.bokeh_uniforms[ "znear" ].value = camera.near;
+              postprocessing.bokeh_uniforms[ "zfar" ].value = camera.far;
+              camera.setFocalLength( effectController.focalLength );
+
+              var loader = new STLLoader();
+              loader.load("\/plugins\/effects\/coronavirus\/virus2.stl", function(geometry) {
+                for(let i=0; i < particleMax; i++){
+
+                  let mesh = new THREE.Mesh(geometry, XRayVirusMaterial);
+                  mesh.scale.set(.08,.08,.08);
+                  let x = getRnd(-spread, spread);
+                  let y = getRnd(-spread, spread);
+                  let z = getRnd(-spread, spread);
+                  let rx = getRnd(-Math.PI, Math.PI);
+                  let ry = getRnd(-Math.PI, Math.PI);
+                  let rz = getRnd(-Math.PI, Math.PI);
+
+                  let rSpeed = 2;
+                  let rxv = getRnd(-rSpeed, rSpeed);
+                  let ryv = getRnd(-rSpeed, rSpeed);
+                  let rzv = getRnd(-rSpeed, rSpeed);
+                  mesh.position.set(x, y, z);
+                  mesh.rotation.set(rx, ry, rz);
+
+                  particles.push({
+                    mesh: mesh,  
+                    x: x, y: y, z: z, 
+                    rx: rx, ry: ry, rz: rz, 
+                    rxv: rxv, ryv: ryv, rzv: rzv
+                  });
+                  scene.add(mesh);
+
+                }
+
+                let bitGeometry = new THREE.SphereGeometry( .3, 8, 8);
+                for(let i=0; i < bitMax; i++){
+                  let sphere = new THREE.Mesh( bitGeometry, XRayBitMaterial );
+                  
+                  let x = getRnd(-spread, spread);
+                  let y = getRnd(-spread, spread);
+                  let z = getRnd(-spread, spread);
+                  let rx = getRnd(-Math.PI, Math.PI);
+                  let ry = getRnd(-Math.PI, Math.PI);
+                  let rz = getRnd(-Math.PI, Math.PI);
+                  let rSpeed = 1;
+                  let rxv = getRnd(rSpeed, rSpeed);
+                  let ryv = getRnd(rSpeed, rSpeed);
+                  let rzv = getRnd(rSpeed, rSpeed);
+                  sphere.position.set(x, y, z);
+                  sphere.rotation.set(rx, ry, rz);
+                  bits.push({mesh: sphere, 
+                             x: x, y: y, z: z, 
+                             rx: rx, ry: ry, rz: rz, 
+                             rxv: rxv, ryv: ryv, rzv: rzv});
+                  scene.add( sphere );
+                }
+
+              });
+
+              window.addEventListener( "resize", onWindowResize, false );
+            }
+
+            function onWindowResize() {
+              camera.aspect = window.innerWidth / window.innerHeight;
+              camera.updateProjectionMatrix();
+              windowHalfX = window.innerWidth / 2;
+              windowHalfY = window.innerHeight / 2;
+              postprocessing.rtTextureDepth.setSize( window.innerWidth, window.innerHeight );
+              postprocessing.rtTextureColor.setSize( window.innerWidth, window.innerHeight );
+              postprocessing.bokeh_uniforms[ "textureWidth" ].value = window.innerWidth;
+              postprocessing.bokeh_uniforms[ "textureHeight" ].value = window.innerHeight;
+              renderer.setSize( window.innerWidth, window.innerHeight );
+            }
+
+            function initPostprocessing() {
+              postprocessing.scene = new THREE.Scene();
+              postprocessing.camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, - 10000, 10000 );
+              postprocessing.camera.position.z = 100;
+              postprocessing.scene.add( postprocessing.camera );
+              var pars = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat };
+              postprocessing.rtTextureDepth = new THREE.WebGLRenderTarget( window.innerWidth, window.innerHeight, pars );
+              postprocessing.rtTextureColor = new THREE.WebGLRenderTarget( window.innerWidth, window.innerHeight, pars );
+              var bokeh_shader = BokehShader;
+              postprocessing.bokeh_uniforms = THREE.UniformsUtils.clone( bokeh_shader.uniforms );
+              postprocessing.bokeh_uniforms[ "tColor" ].value = postprocessing.rtTextureColor.texture;
+              postprocessing.bokeh_uniforms[ "tDepth" ].value = postprocessing.rtTextureDepth.texture;
+              postprocessing.bokeh_uniforms[ "textureWidth" ].value = window.innerWidth;
+              postprocessing.bokeh_uniforms[ "textureHeight" ].value = window.innerHeight;
+              postprocessing.materialBokeh = new THREE.ShaderMaterial( {
+                uniforms: postprocessing.bokeh_uniforms,
+                vertexShader: bokeh_shader.vertexShader,
+                fragmentShader: bokeh_shader.fragmentShader,
+                defines: {
+                  RINGS: shaderSettings.rings,
+                  SAMPLES: shaderSettings.samples
+                }
+              } );
+              postprocessing.quad = new THREE.Mesh( new THREE.PlaneBufferGeometry( window.innerWidth, window.innerHeight ), postprocessing.materialBokeh );
+              postprocessing.quad.position.z = - 500;
+              postprocessing.scene.add( postprocessing.quad );
+            }
+
+            function shaderUpdate() {
+              postprocessing.materialBokeh.defines.RINGS = shaderSettings.rings;
+              postprocessing.materialBokeh.defines.SAMPLES = shaderSettings.samples;
+              postprocessing.materialBokeh.needsUpdate = true;
+            }
+
+            function animate() {
+              requestAnimationFrame( animate, renderer.domElement );
+              virusUpdate();
+              bitsUpdate();
+              camera.rotation.x += 0.0033187;
+              camera.rotation.y += 0.0052349;
+              camera.rotation.z += 0.00323;
+
+              render();
+            }
+
+            function virusUpdate(){
+              for(let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                
+                p.x += 0.04;
+                p.z += 0.0011;
+                if(p.x > spread) p.x = -spread;
+                if(p.z > spread) p.z = -spread;
+                p.mesh.position.x = p.x;
+                p.mesh.position.z = p.z;
+
+                p.rx += (p.rxv / 100);
+                p.ry += (p.ryv / 100);
+                p.rz += (p.rzv / 100);
+                p.mesh.rotation.set(p.rx, p.ry, p.rz);
+              }
+            }
+
+            function bitsUpdate(){
+              for(let i = 0; i < bits.length; i++) {
+                let p = bits[i];
+                p.x += 0.04;
+                p.z += 0.0011;
+                if(p.x > spread) p.x = -spread;
+                if(p.z > spread) p.z = -spread;
+                p.mesh.position.x = p.x;
+                p.mesh.position.z = p.z;
+
+                p.rx += (p.rxv / 100);
+                p.ry += (p.ryv / 100);
+                p.rz += (p.rzv / 100);
+                p.mesh.rotation.set(p.rx, p.ry, p.rz);
+              }
+            }
+
+            function linearize( depth ) {
+              var zfar = camera.far;
+              var znear = camera.near;
+              return - zfar * znear / ( depth * ( zfar - znear ) - zfar );
+            }
+
+            function smoothstep( near, far, depth ) {
+              var x = saturate( ( depth - near ) / ( far - near ) );
+              return x * x * ( 3 - 2 * x );
+            }
+
+            function saturate( x ) {
+              return Math.max( 0, Math.min( 1, x ) );
+            }
+
+            function render() {
+
+              if ( postprocessing.enabled ) {
+                renderer.clear();
+                
+                renderer.setRenderTarget( postprocessing.rtTextureColor );
+                renderer.clear();
+                renderer.render( scene, camera );
+                
+                scene.overrideMaterial = materialDepth;
+                renderer.setRenderTarget( postprocessing.rtTextureDepth );
+                renderer.clear();
+                renderer.render( scene, camera );
+                scene.overrideMaterial = null;
+                
+                renderer.setRenderTarget( null );
+                renderer.render( postprocessing.scene, postprocessing.camera );
+              } else {
+                scene.overrideMaterial = null;
+                renderer.setRenderTarget( null );
+                renderer.clear();
+                renderer.render( scene, camera );
+              }
+            }
+
+        </script></div><section class=section-contact id=contact><div class=row><div class="col-md-6 left-box" style=background-image:url(/images/contact-section.jpg)><div class="title-section wow fadeUp" data-wow-delay=.3s><i class="fas fa-envelope"></i><h2>Get in touch</h2><p>Be the first to know what's up with Condo Kitchen. We would love to hear from you.</p></div><div class=row></div></div><div class="col-md-6 right-box"><form id=contact-form action=https://formspree.io/f/mdojprlw method=post><input class="wow fadeUp" data-wow-delay=.3s type=text name=name id=name placeholder=Name>
+<input class="wow fadeUp" data-wow-delay=.3s type=email name=email id=email placeholder=Email>
+<textarea class="wow fadeUp" data-wow-delay=.3s name=msg id=msg placeholder=Message></textarea>
+<input class="wow fadeUp" data-wow-delay=.3s type=submit name=submit id=submit value=Send></form></div></div></section></div><footer><div class=container><div class=row><div class=footer-content><div class=copyright>BubblesNetworks © 2023</div></div></div></div></footer><script src=plugins/countdown/countdown.min.js></script>
+<script src=plugins/ajaxchimp/jquery.ajaxchimp.min.js></script>
+<script async src=https://platform.twitter.com/widgets.js></script>
+<script src=plugins/validate/jquery.validate.min.js></script>
+<script src=plugins/appear/jquery.appear.min.js></script>
+<script src=plugins/countTo/jquery.countTo.min.js></script>
+<script src=plugins/slicknav/jquery.slicknav.min.js></script>
+<script src=plugins/sharer/sharer.min.js></script>
+<script src=plugins/wow/wow.min.js></script>
+<script src=plugins/fuse/fuse.min.js></script>
+<script src=plugins/mark/mark.min.js></script>
+<script src=plugins/search/search.min.js></script>
+<script src=/js/app.min.js></script></body></html>
