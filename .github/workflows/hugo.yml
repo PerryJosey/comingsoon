@@ -22,7 +22,7 @@ jobs:
           extended: true
       
       - name: Download Minify
-        run: wget -qO- https://github.com/tdewolff/minify/releases/download/v2.9.10/minify_linux_amd64.tar.gz | tar xzf -
+        run: wget -qO- https://github.com/tdewolff/minify/releases/download/v2.12.6/minify_linux_amd64.tar.gz | tar xzf -
 
       - name: Build
         run: |
