@@ -514,7 +514,7 @@ DefaultContentLanguage = "en" # Site language. Available translations in the the
 [params]
 defaultLogo = "Woody"
 defaultKeywords = ["clean", "minimal", "blog", "responsive", "google analytics", "bootstrap", "under construction", "coming soon", "modern", "countdown", "hugo theme", "creative"]
-defaultDescription = "Woody - Coming Soon & Under Construction Hugo Theme"
+defaultDescription = "Condo Kitchen - Coming Soon"
 dateFormat = "January 2, 2006"
 authorName = "Mountain-Themes"
 disqusComments = " " #YOUR DISQUS COMMENTS SHORTNAME
